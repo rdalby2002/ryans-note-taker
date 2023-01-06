@@ -25,12 +25,5 @@ notes.post('/', (req, res) => {
   }
 });
 
-notes.delete('/:id', (req, res) => {
-  const indexOfNote = readFromFile('./db/db.json').then((data) => data.indexOf(req.params.id));
-
-  var result = json.splice(indexOfNote, 1);
-  writeToFile('./db/db.json', result);
-  res.json(true);
-});
 
 module.exports = notes;
