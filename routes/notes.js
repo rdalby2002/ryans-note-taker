@@ -2,10 +2,12 @@ const notes = require('express').Router();
 const { readFromFile, writeToFile, readAndAppend } = require('../helpers/fsUtils');
 const uuid = require('../helpers/uuid')
 
+// Establishes that GET requests retrieve saved notes from db.json
 notes.get('/', (req, res) => {
   readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
+// Establishes that POST requests save new notes to db/db.json
 notes.post('/', (req, res) => {
   console.log(req.body);
   
@@ -25,6 +27,6 @@ notes.post('/', (req, res) => {
   }
 });
 
-
+// Export pathing
 module.exports = notes;
 

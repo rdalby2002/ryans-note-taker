@@ -1,3 +1,4 @@
+// Color coordinated messages for the three utilized request methods that display in the terminal when each method is used locally"
 const clog = (req, res, next) => {
   const fgCyan = '\x1b[36m';
   switch (req.method) {
